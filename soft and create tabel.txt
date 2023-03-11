@@ -1,0 +1,71 @@
+soft and create tabel
+جدول ContactUs
+
+
+کوئری ساخت جدول
+
+DROP TABLE IF EXISTS `contactus`;
+CREATE TABLE IF NOT EXISTS `contactus` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(855) COLLATE utf8_persian_ci NOT NULL,
+  `username` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  `subject` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  `phonenumber` varchar(11) COLLATE utf8_persian_ci NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+ALTER TABLE `contactus`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `contactus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  
+
+درج پیام جدید 
+INSERT INTO `contactus` (`id`, `message`, `username`, `subject`, `phonenumber`) VALUES
+(1, 'hyftdxffvchnvbg c', 'mohammadmp', 'hvgdgc', '09901197267');
+COMMIT;
+
+حذف پیام
+DELETE FROM contactus WHERE id=1
+
+
+جدول user
+
+کوئری ساخت جدول
+CREATE TABLE `user` (
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fullname` varchar(50) COLLATE utf8_persian_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8_persian_ci NOT NULL,
+  `gender` enum('male','female') COLLATE utf8_persian_ci NOT NULL,
+  `birthday` varchar(10) COLLATE utf8_persian_ci NOT NULL,
+  `phonenumber` varchar(11) COLLATE utf8_persian_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_persian_ci NOT NULL,
+  `address` varchar(350) COLLATE utf8_persian_ci NOT NULL,
+  `status` enum('active','deactive') COLLATE utf8_persian_ci NOT NULL,
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+ALTER TABLE `user`
+PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `phonenumber` (`phonenumber`)
+
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  
+
+ثبت نام
+INSERT INTO `user` (`id`, `fullname`, `username`, `gender`, `birthday`, `phonenumber`, `email`, `address`, `status`) VALUES
+(1, 'mohammad moosupur', 'rico', 'male', '1382/2/11', '09901197267', 'mohammadmp231@gmail.com', 'Isfahanmardavpelak3', 'active');
+COMMIT;
+حذف کاربر
+DELETE FROM user WHERE id = 1
+
+
+
+soft delete
+update user SET status = 'deactive' WHERE id =1;
+
