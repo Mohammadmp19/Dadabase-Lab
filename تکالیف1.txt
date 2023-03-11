@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `phonenumber` varchar(11) COLLATE utf8_persian_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_persian_ci NOT NULL,
   `address` varchar(350) COLLATE utf8_persian_ci NOT NULL,
-  `update` enum('active','deactive') COLLATE utf8_persian_ci NOT NULL,LL
+  `status` enum('active','deactive') COLLATE utf8_persian_ci NOT NULL,
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 ALTER TABLE `user`
@@ -56,9 +56,14 @@ ALTER TABLE `user`
   
 
 ثبت نام
-INSERT INTO `user` (`id`, `fullname`, `username`, `gender`, `birthday`, `phonenumber`, `email`, `address`, `update`) VALUES
+INSERT INTO `user` (`id`, `fullname`, `username`, `gender`, `birthday`, `phonenumber`, `email`, `address`, `status`) VALUES
 (1, 'mohammad moosupur', 'rico', 'male', '1382/2/11', '09901197267', 'mohammadmp231@gmail.com', 'Isfahanmardavpelak3', 'active');
 COMMIT;
-
 حذف کاربر
 DELETE FROM user WHERE id = 1
+
+
+
+soft delete
+update user SET status = 'deactive' WHERE id =1;
+
