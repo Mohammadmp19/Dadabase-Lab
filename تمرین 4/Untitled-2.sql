@@ -1,10 +1,10 @@
 ----> keywords - کلید واژه ها
 
-//جستجو اتاق های دارای یک کلیدواژه خاص
-SELECT * FROM houses WHERE keywords LIKE "% %";
+//جستجو اتاق های دارای یک ویژگی خاص
+SELECT * FROM houses WHERE `description` LIKE "% %";
 
-//جستجو اتاق دارای یکی از چندین کلیدواژه مد نظر
-SELECT * FROM houses WHERE keywords LIKE "% %" OR keywords LIKE "% %";
+//جستجو اتاق دارای یکی از چندین ویژگی مد نظر
+SELECT * FROM houses WHERE `category_id` LIKE "% %" OR `category_id` LIKE "% %";
 
 
 
